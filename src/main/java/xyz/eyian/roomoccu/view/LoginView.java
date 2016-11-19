@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import xyz.eyian.roomoccu.controller.LoginViewController;
 import xyz.eyian.roomoccu.controller.MainApp;
 
 public class LoginView extends JFrame{
@@ -16,7 +17,7 @@ public class LoginView extends JFrame{
 	private JButton btnLogin, btnCancel;
 	
 	
-	public LoginView(MainApp mainApp){
+	public LoginView(LoginViewController controller){
 		super();
 		setTitle("Login");
 		
