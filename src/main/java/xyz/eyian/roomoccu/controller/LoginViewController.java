@@ -1,5 +1,6 @@
 package xyz.eyian.roomoccu.controller;
 
+import xyz.eyian.roomoccu.model.User;
 import xyz.eyian.roomoccu.view.LoginView;
 
 public class LoginViewController {
@@ -15,13 +16,18 @@ public class LoginViewController {
 		return instance;
 	}
 	
-	private LoginViewController(){
+	LoginViewController(){
 		super();
 		view = new LoginView(this);
 		view.setVisible(true);
 	}
 	
 	public void  login(User user){
+		
+	}
+
+	public void setVisible(boolean b) {
+		// TODO Auto-generated method stub
 		
 	}
 }

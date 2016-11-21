@@ -5,12 +5,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
-
 import xyz.eyian.roomoccu.controller.LoginViewController;
-import xyz.eyian.roomoccu.controller.MainApp;
 
 public class LoginView extends JFrame{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JLabel lblUser, lblPWD;
 	private JTextField txtUser;
 	private JPasswordField pwdPWD;
@@ -25,7 +27,7 @@ public class LoginView extends JFrame{
 		JPanel pnlPWD = new JPanel(new GridLayout());
 		JPanel pnlUserLogin = new JPanel(new BorderLayout());
 		
-		JPanel pnlBTN = new JPanel(new GridLayout());
+		JPanel pnlBTN = new JPanel(new BorderLayout());
 		JPanel pnlMain = new JPanel(new BorderLayout());
 		
 		lblUser = new JLabel("User:");
@@ -41,10 +43,12 @@ public class LoginView extends JFrame{
 		pnlUserLogin.add(pnlUser, BorderLayout.NORTH);
 		pnlUserLogin.add(pnlPWD, BorderLayout.SOUTH);
 		
-		btnCancel = new JButton("Cancel");
-		btnLogin = new JButton("Login");
-		pnlBTN.add(btnLogin);
-		pnlBTN.add(btnCancel);
+		btnCancel = new JButton("Login");
+		btnCancel.setPreferredSize(new Dimension(170, 30));
+		btnLogin = new JButton("Cancel");
+		btnLogin.setPreferredSize(new Dimension(170, 30));
+		pnlBTN.add(btnLogin, BorderLayout.EAST);
+		pnlBTN.add(btnCancel, BorderLayout.WEST);
 		
 		pnlMain.add(pnlUserLogin, BorderLayout.NORTH);
 		pnlMain.add(pnlBTN, BorderLayout.SOUTH);
@@ -55,23 +59,17 @@ public class LoginView extends JFrame{
 		pnlMain.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		pack();
 		setLocationRelativeTo(null);
+		this.setSize(500, 280);
 		this.setVisible(false);
-
-		
 	}
-	
-	public class onLogin implements ActionListener{
+		private class onLogin implements ActionListener {
 
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			MainApp.getInstance().sum(txtField, txtField2);
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
 		}
-	}
-
-	int sum (JTextField field, String b)
-	
-	
-	
 }
