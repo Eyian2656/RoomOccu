@@ -23,6 +23,10 @@ public class LoginViewController {
 	}
 	/*
 	 * Objekt oder Variabelen empfangen ?
+	 * 
+	 * Na die 2 Variabelelelelelelen... wie du es schon dort hin geschrieben hast :D 
+	 * Und dann schreibst du hier rein was passieren soll... kannst dir ja auch noch
+	 * meine Loginmethode anschauen.
 	 */
 	public void  login(String user, String pw){
 		
