@@ -5,6 +5,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+
+import com.csc.de.VeAuLe.controller.LoginController;
+
 import xyz.eyian.roomoccu.controller.LoginViewController;
 
 public class LoginView extends JFrame{
@@ -64,10 +67,19 @@ public class LoginView extends JFrame{
 		this.setVisible(false);
 	}
 		private class onLogin implements ActionListener {
-
+	
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+				String user = txtUser.getText();
+				String pw = pwdPWD.getPassword();
+
+				if(user.isEmpty()) {
+					JOptionPane.showMessageDialog(null, "User fehlt", "", JOptionPane.ERROR_MESSAGE);
+				} else if (pw.isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Kennwort fehlt", "", JOptionPane.ERROR_MESSAGE);
+				} else {
+						LoginViewController.getInstance().login(user);
+					}
 				
 			}
 			

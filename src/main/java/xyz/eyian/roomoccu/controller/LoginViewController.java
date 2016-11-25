@@ -21,8 +21,10 @@ public class LoginViewController {
 		view = new LoginView(this);
 		view.setVisible(true);
 	}
-	
-	public void  login(User user){
+	/*
+	 * Objekt oder Variabelen empfangen ?
+	 */
+	public void  login(String user, String pw){
 		
 	}
 
