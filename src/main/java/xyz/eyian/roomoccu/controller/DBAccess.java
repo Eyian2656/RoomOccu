@@ -17,8 +17,8 @@ import javax.swing.JOptionPane;
 public class DBAccess {
 	
 	private static final String url = "jdbc:mysql://localhost/roomoccu";
-	private static final String user = "user";
-	private static final String passwort = "1qayxsw2";
+	private static final String user = "root";
+	private static final String passwort = "";
 	private Connection connection;
 	private boolean connected;
 
@@ -46,7 +46,7 @@ public class DBAccess {
 	
 	/**
 	 * Methode zur Übertragung von Abfragen
-	 *  TODO: Verstehe ich nicht  erklärung pls !!!!!
+	 * 
 	 * @param query
 	 * @return
 	 * @throws SQLException

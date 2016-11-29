@@ -5,9 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
-
-import com.csc.de.VeAuLe.controller.LoginController;
-
 import xyz.eyian.roomoccu.controller.LoginViewController;
 
 public class LoginView extends JFrame {
@@ -45,10 +42,11 @@ public class LoginView extends JFrame {
 		pnlUserLogin.add(pnlUser, BorderLayout.NORTH);
 		pnlUserLogin.add(pnlPWD, BorderLayout.SOUTH);
 
-		btnCancel = new JButton("Login");
+		btnCancel = new JButton("Cancel");
 		btnCancel.setPreferredSize(new Dimension(170, 30));
-		btnLogin = new JButton("Cancel");
+		btnLogin = new JButton("Login");
 		btnLogin.setPreferredSize(new Dimension(170, 30));
+		btnLogin.addActionListener(new onLogin());
 		pnlBTN.add(btnLogin, BorderLayout.EAST);
 		pnlBTN.add(btnCancel, BorderLayout.WEST);
 
@@ -90,7 +88,7 @@ public class LoginView extends JFrame {
 			} else if (pw.length == 0) {
 				JOptionPane.showMessageDialog(null, "Kennwort fehlt", "", JOptionPane.ERROR_MESSAGE);
 			} else {
-				LoginViewController.getInstance().login(user, pw);
+				LoginViewController.getInstance().onLogin(user, pw);
 			}
 		}
 	}
