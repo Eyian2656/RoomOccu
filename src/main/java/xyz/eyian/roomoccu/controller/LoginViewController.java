@@ -2,6 +2,8 @@ package xyz.eyian.roomoccu.controller;
 
 import javax.swing.JOptionPane;
 
+import com.csc.de.VeAuLe.controller.DocumentController;
+
 import xyz.eyian.roomoccu.dao.UserDao;
 import xyz.eyian.roomoccu.model.User;
 import xyz.eyian.roomoccu.view.LoginView;
@@ -38,11 +40,19 @@ public class LoginViewController {
 		if (data == null) {
 			JOptionPane.showInternalMessageDialog(null, "Benutzer existiert nicht.", "Fehler", JOptionPane.ERROR_MESSAGE);
 			return null;
-		} else if(data.getPassword().equals(pw)){
-			
+		} else if(data.getPassword().equals(pw)){	
 			setUserLogin(data.getUsername());
-			
+			JOptionPane.showMessageDialog(null, "LogIn erfolgreich!", "Info", JOptionPane.INFORMATION_MESSAGE);
+			view.dispose();
+		} else if (!data.getPassword().equals(pw)) {
+			JOptionPane.showMessageDialog(null, "Das eingegebene Passwort ist nicht korrekt.", "Fehler",
+					JOptionPane.ERROR_MESSAGE);
+		} else {
+			JOptionPane.showMessageDialog(null, "Verbindung zum Server fehlgeschlagen", "Fehler",
+					JOptionPane.ERROR_MESSAGE);
 		}
+		return ret;
+	
 	}
 
 	public String getUserLogin() {
