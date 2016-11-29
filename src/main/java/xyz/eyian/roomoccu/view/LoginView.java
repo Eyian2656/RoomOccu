@@ -90,7 +90,7 @@ public class LoginView extends JFrame {
 			} else if (pw.length == 0) {
 				JOptionPane.showMessageDialog(null, "Kennwort fehlt", "", JOptionPane.ERROR_MESSAGE);
 			} else {
-				LoginViewController.getInstance().login(user);
+				LoginViewController.getInstance().login(user, pw);
 			}
 		}
 	}
