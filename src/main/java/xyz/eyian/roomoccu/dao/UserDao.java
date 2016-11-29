@@ -16,12 +16,6 @@ public class UserDao {
 	 */
 	private static UserDao instance;
 
-	/**
-	 * liefert eine Instance der ExternalManualDao zurück
-	 * TODO: Was ist ExternalmanualDao
-	 * @return
-	 */
-
 	public static UserDao getInstance() {
 		if (instance == null) {
 			instance = new UserDao();

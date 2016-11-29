@@ -27,7 +27,7 @@ public class DBAccess {
 	 ÜVerbindung mit der Datenbank
 	 
 	 @return boolean - true wenn verbindung erstellt wurde
-	 * TODO: keine ahnung wie die setConnection funktioniert
+	 *
 	 */
 	public boolean connect(){
 		connected = false;

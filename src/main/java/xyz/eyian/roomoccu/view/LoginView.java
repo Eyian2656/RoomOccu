@@ -77,12 +77,9 @@ public class LoginView extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			String user = txtUser.getText();
-			//.getPassword() hatte nicht funktionert aufgrund dem String,
-			// ich hatte das in dem Dateilagerungssystem noch auf depracated.
-			// Da der Datentyp char nicht .isEmpty() unterstützt, muss man abfragen ob
-			// das char ARRAY leer ist.
 			char[] pw = pwdPWD.getPassword();
 
+	
 			if (user.isEmpty()) {
 				JOptionPane.showMessageDialog(null, "User fehlt", "", JOptionPane.ERROR_MESSAGE);
 			} else if (pw.length == 0) {
