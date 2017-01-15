@@ -8,11 +8,12 @@ import org.apache.commons.lang3.StringUtils;
 import xyz.eyian.roomoccu.dao.UserDao;
 import xyz.eyian.roomoccu.model.User;
 import xyz.eyian.roomoccu.view.LoginView;
+import xyz.eyian.roomoccu.view.UserView;
 
 public class LoginViewController {
 	
 	private static LoginViewController instance;
-	private LoginView view;
+	private UserView view;
 
 	
 	
@@ -25,7 +26,7 @@ public class LoginViewController {
 	
 	LoginViewController(){
 		super();
-		view = new LoginView(this);
+		view = new UserView(this);
 		view.setVisible(true);
 	}
 	public User onLogin(String user, char[] pw){
