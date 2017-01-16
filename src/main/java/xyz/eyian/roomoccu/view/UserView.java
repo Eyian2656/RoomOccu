@@ -9,7 +9,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 
-import xyz.eyian.roomoccu.controller.LoginViewController;
 
 public class UserView extends JFrame{
 	/**
@@ -33,7 +32,7 @@ public class UserView extends JFrame{
 			{"16:15", "17:00" , "Mr. Jim"}};
 
 		
-	public UserView(LoginViewController controller) {
+	public UserView() {
 		super();
 		//FrameOptions
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);

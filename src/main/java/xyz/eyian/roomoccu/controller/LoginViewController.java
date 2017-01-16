@@ -5,17 +5,14 @@ import javax.swing.JOptionPane;
 
 import org.apache.commons.lang3.StringUtils;
 
-import xyz.eyian.roomoccu.dao.UserDao;
+import xyz.eyian.roomoccu.dao.LoginDao;
 import xyz.eyian.roomoccu.model.User;
 import xyz.eyian.roomoccu.view.LoginView;
 import xyz.eyian.roomoccu.view.UserView;
 
 public class LoginViewController {
-	
 	private static LoginViewController instance;
-	private UserView view;
-
-	
+	private LoginView view;
 	
 	public static LoginViewController getInstance(){
 		if (instance == null) {
@@ -26,12 +23,12 @@ public class LoginViewController {
 	
 	LoginViewController(){
 		super();
-		view = new UserView(this);
+		view = new LoginView(this);
 		view.setVisible(true);
 	}
 	public User onLogin(String user, char[] pw){
 		System.out.println("woop");
-		User data = UserDao.getInstance().select(user);
+		User data = LoginDao.getInstance().select(user);
 		
 		if (data == null) {
 			JOptionPane.showInternalMessageDialog(null, "Benutzer existiert nicht.", "Fehler", JOptionPane.ERROR_MESSAGE);
@@ -41,7 +38,7 @@ public class LoginViewController {
 		if(StringUtils.equals(data.getPassword(), String.valueOf(pw))){	
 			JOptionPane.showMessageDialog(null, "LogIn erfolgreich!", "Info", JOptionPane.INFORMATION_MESSAGE);
 			view.dispose();
-			// TODO: Hier kommt die neue VIEW
+			UserViewController.getInstance().showUserView();
 			System.out.println(" Erfolgreich eingelocht");
 		} else {
 			JOptionPane.showMessageDialog(null, "Das eingegebene Passwort ist nicht korrekt.", "Fehler",
