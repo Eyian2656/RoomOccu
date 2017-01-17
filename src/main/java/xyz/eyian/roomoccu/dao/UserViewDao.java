@@ -9,7 +9,6 @@ import java.util.List;
 import xyz.eyian.roomoccu.controller.DBAccess;
 import xyz.eyian.roomoccu.model.Room;
 
-
 public class UserViewDao {
 	private DBAccess dbaccess;
 
@@ -38,10 +37,12 @@ public class UserViewDao {
 		try {
 			ResultSet resultset = dbaccess.executeQuery(select);
 			data = new ArrayList<Room>();
-			while(resultset.next()){
-				Room room = new Room();
+			while (resultset.next()) {
+				Room rooms = new Room();
+				rooms.setEtage(resultset.getString(2));
+				rooms.setRoom(resultset.getString(3));
+				data.add(rooms);
 			}
-			
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -49,7 +50,7 @@ public class UserViewDao {
 			dbaccess.close();
 		}
 
-		return result;
+		return data;
 	}
 
 }
