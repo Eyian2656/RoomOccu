@@ -1,12 +1,12 @@
 package xyz.eyian.roomoccu.controller;
 
-import xyz.eyian.roomoccu.dao.UserDao;
+import xyz.eyian.roomoccu.dao.UserViewDao;
 import xyz.eyian.roomoccu.view.UserView;
 
 public class UserViewController {
 	UserView userView;
 	private static UserViewController uvCon;
-	private UserDao userDao;
+	private UserViewDao userDao;
 	
 	/**
 	 * Erstellt eine Instanz
@@ -23,7 +23,7 @@ public class UserViewController {
 	 * Konstruktor
 	 */
 	public UserViewController(){
-		userDao = UserDao.getInstance();
+		userDao = UserViewDao.getInstance();
 	}
 	
 	public void showUserView(){
