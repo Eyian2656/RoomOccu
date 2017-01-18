@@ -16,7 +16,7 @@ public class LoginDao {
 	private DBAccess dbaccess;
 
 	/*
-	 * Singelton Pattern Tobias
+	 * Singelton Pattern 
 	 */
 	private static LoginDao instance;
 

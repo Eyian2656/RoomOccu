@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 import org.apache.commons.lang3.StringUtils;
 
 import xyz.eyian.roomoccu.dao.LoginDao;
+import xyz.eyian.roomoccu.dao.UserViewDao;
 import xyz.eyian.roomoccu.model.User;
 import xyz.eyian.roomoccu.view.LoginView;
 import xyz.eyian.roomoccu.view.UserView;
@@ -39,7 +40,8 @@ public class LoginViewController {
 			JOptionPane.showMessageDialog(null, "LogIn erfolgreich!", "Info", JOptionPane.INFORMATION_MESSAGE);
 			view.dispose();
 			UserViewController.getInstance().showUserView();
-			System.out.println(" Erfolgreich eingelocht");
+			System.out.println("Erfolgreich eingelocht");
+			
 		} else {
 			JOptionPane.showMessageDialog(null, "Das eingegebene Passwort ist nicht korrekt.", "Fehler",
 					JOptionPane.ERROR_MESSAGE);

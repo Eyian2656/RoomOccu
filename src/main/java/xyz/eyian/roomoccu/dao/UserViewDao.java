@@ -29,19 +29,20 @@ public class UserViewDao {
 		dbaccess = DBAccess.getInstance();
 	}
 
-	public List<Room> insertCombo(Room room) {
+	public List<Room> selectEtage() {
 		List<Room> data = null;
 		dbaccess.connect();
 
-		String select = "SELECT * FROM rooms";
+		String select = "SELECT * FROM etage";
 		try {
 			ResultSet resultset = dbaccess.executeQuery(select);
 			data = new ArrayList<Room>();
 			while (resultset.next()) {
 				Room rooms = new Room();
 				rooms.setEtage(resultset.getString(2));
-				rooms.setRoom(resultset.getString(3));
 				data.add(rooms);
+				// TODO Test zur ausgabe von etage
+				System.out.println(rooms.getEtage());
 			}
 
 		} catch (SQLException e) {
@@ -49,7 +50,28 @@ public class UserViewDao {
 		} finally {
 			dbaccess.close();
 		}
+		return data;
+	}
 
+	public List<Room> selectRoom() {
+		List<Room> data = null;
+		dbaccess.connect();
+		String select = "SELECT * FROM rooms";
+		try {
+			ResultSet resultset = dbaccess.executeQuery(select);
+			data = new ArrayList<Room>();
+			while (resultset.next()) {
+				Room rooms = new Room();
+				rooms.setRoom(resultset.getString(3));
+				data.add(rooms);
+				// TODO Test zur Ausgabe von Zimmer
+				System.out.println(rooms.getRoom());
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			dbaccess.close();
+		}
 		return data;
 	}
 
