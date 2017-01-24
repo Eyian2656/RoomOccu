@@ -1,5 +1,8 @@
 package xyz.eyian.roomoccu.controller;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import xyz.eyian.roomoccu.dao.UserViewDao;
 import xyz.eyian.roomoccu.view.UserView;
 
@@ -29,6 +32,10 @@ public class UserViewController {
 	public void showUserView(){
 		userView = new UserView();
 		userView.setVisible(true);
+	}
+	
+	public ResultSet getAllEtage() throws  ClassNotFoundException, SQLException {
+		return userDao.selectEtage();
 	}
 	
 }

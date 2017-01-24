@@ -3,11 +3,16 @@ package xyz.eyian.roomoccu.view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+
+import xyz.eyian.roomoccu.controller.UserViewController;
 
 
 public class UserView extends JFrame{
@@ -22,8 +27,8 @@ public class UserView extends JFrame{
 	private JLabel lblEtage, lblRoom, lblVon, lblBis;
 	private JComboBox<String> cbEtage, cbRoom, cbVonH, cbVonM, cbBisH, cbBisM;
 	private JTable tUbersicht;
-	private String[] etage = { "Erdgeschoss", "2. Geschoss"};
-	private String[] room = { "Köln", "Paris", "Berlin", "Wien"};
+	//private String[] etage ;
+	private String[] room = {"Von", "Bis","Wer"};
 	private String[] hour = { "07", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19"}; 
 	private String[] min = {"00", "10","20","30","40","50"};
 	private String[] colNames = {"Von", "Bis","Wer"};
@@ -41,12 +46,22 @@ public class UserView extends JFrame{
 		this.setTitle("Raumbuchung");
 		
 		//ComboOption
-		cbEtage = new JComboBox<String>(etage);
+		//cbEtage = new JComboBox<String>(etage);
 		cbRoom = new JComboBox<String>(room);
 		cbVonH = new JComboBox<String>(hour);
 		cbVonM = new JComboBox<String>(min);
 		cbBisH = new JComboBox<String>(hour);
 		cbBisM = new JComboBox<String>(min);
+		
+		//Combobox setten über db
+		cbEtage = new JComboBox<String>();
+		ResultSet rs;
+		try{
+			rs = UserViewController.getInstance().getAllEtage();
+			cbEtage.addItem(rs.getString(1));
+		} catch (ClassNotFoundException | SQLException e2) {
+			e2.printStackTrace();
+		}
 		
 		//LabelOption
 		lblEtage = new JLabel("Etage:");

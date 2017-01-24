@@ -48,6 +48,7 @@ public class LoginView extends JFrame {
 		btnLogin.setPreferredSize(new Dimension(170, 30));
 		btnLogin.addActionListener(new onLogin());
 		pnlBTN.add(btnLogin, BorderLayout.EAST);
+		getRootPane().setDefaultButton(btnLogin);
 		pnlBTN.add(btnCancel, BorderLayout.WEST);
 
 		pnlMain.add(pnlUserLogin, BorderLayout.NORTH);
