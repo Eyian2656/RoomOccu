@@ -1,9 +1,13 @@
 package xyz.eyian.roomoccu.controller;
 
-public class MainApp {
+import xyz.eyian.roomoccu.dao.UserViewDao;
 
-	public static void main(String[] args) {
-		System.out.println("Hello world");
+public class MainApp {
+	
+		public static void main(String[] args) {
+			UserViewDao.getInstance().selectEtage();
+			LoginViewController.getInstance();
+			UserViewDao.getInstance().selectRoom();
+		}
 	}
 
-}
