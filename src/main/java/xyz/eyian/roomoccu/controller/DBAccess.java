@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 
 /**
- * Test test 
+ * 
  * Verbinden dieses Java Programm mit der Datenbank
  * @author Ian
  *
